@@ -1,0 +1,62 @@
+{
+    "alunos": [
+        {
+            "nome": "N\u00e9lio Fraz\u00e3o Chaves",
+            "matricula": "20476452232",
+            "curso": "Sistemas para internet",
+            "id": 5
+        },
+        {
+            "nome": "Welison Nunes Belo",
+            "matricula": "151533453",
+            "curso": "Sistemas para internet",
+            "id": 6
+        },
+        {
+            "nome": "Rafael",
+            "matricula": "123123",
+            "curso": "Sistemas para internet",
+            "id": 7
+        },
+        {
+            "nome": "Sergio Liberto",
+            "matricula": "324",
+            "curso": "Redes",
+            "id": 8
+        }
+    ],
+    "disciplinas": [
+        {
+            "id": 1,
+            "nome": "Introdu\u00e7\u00e3o a progra\u00e7\u00e3o com scripts",
+            "cargaHoraria": "36h",
+            "professor": "Tiago Daniel Fernando Baptista",
+            "status": "Obrigat\u00f3ria",
+            "observacos": "Lorem ipsum dolor sit amet consectetur adipisicing elit."
+        },
+        {
+            "id": 2,
+            "nome": "Fundamentos da Computa\u00e7\u00e3o",
+            "cargaHoraria": "60h",
+            "professor": "Marcela Vera Mendes",
+            "status": "Obrigat\u00f3ria",
+            "observacos": "Lorem ipsum dolor sit amet consectetur adipisicing elit."
+        },
+        {
+            "id": 2,
+            "nome": "Linguagens de Marca\u00e7\u00e3o",
+            "cargaHoraria": "67h",
+            "professor": "Marcela Vera Mendes",
+            "status": "Obrigat\u00f3ria",
+            "observacos": "Lorem ipsum dolor sit amet consectetur adipisicing."
+        },
+        {
+            "id": 3,
+            "nome": "Portugu\u00eas Instrumental",
+            "cargaHoraria": "50h",
+            "professor": "Mait\u00ea Analu Carolina Arag\u00e3o",
+            "status": "Opcional",
+            "observacos": "Lorem ipsum dolor sit adipisicing elit."
+        }
+    ]
+}
