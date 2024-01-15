@@ -35,15 +35,7 @@
             "observacos": "Lorem ipsum dolor sit amet consectetur adipisicing elit."
         },
         {
-            "id": 2,
-            "nome": "Fundamentos da Computa\u00e7\u00e3o",
-            "cargaHoraria": "60h",
-            "professor": "Marcela Vera Mendes",
-            "status": "Obrigat\u00f3ria",
-            "observacos": "Lorem ipsum dolor sit amet consectetur adipisicing elit."
-        },
-        {
-            "id": 2,
+            "id": 3,
             "nome": "Linguagens de Marca\u00e7\u00e3o",
             "cargaHoraria": "67h",
             "professor": "Marcela Vera Mendes",
@@ -51,7 +43,7 @@
             "observacos": "Lorem ipsum dolor sit amet consectetur adipisicing."
         },
         {
-            "id": 3,
+            "id": 4,
             "nome": "Portugu\u00eas Instrumental",
             "cargaHoraria": "50h",
             "professor": "Mait\u00ea Analu Carolina Arag\u00e3o",

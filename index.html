@@ -90,45 +90,44 @@
         <h1 class="section-header__title">Disciplina</h1>
       </header>
       <div class="subject-list">
-        <div class="subject-card">
-          <h3 class="subject-card__title">Nome da disciplina</h3>
-          <hr />
-          <ul class="subject-card__list">
-            <li>carga horária: 16h</li>
-            <li>Professor: Pessoa da Silva</li>
-            <li>Status <span class="tag tag--danger">Obrigatória</span></li>
-          </ul>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-        </div>
-
-        <div class="subject-card">
-          <h3 class="subject-card__title">Nome da disciplina</h3>
-          <hr />
-          <ul class="subject-card__list">
-            <li>carga horária: 16h</li>
-            <li>Professor: Pessoa da Silva</li>
-            <li>Status <span class="tag tag--success">Opcional</span></li>
-          </ul>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-        </div>
-
-        <div class="subject-card">
-          <h3 class="subject-card__title">Nome da disciplina</h3>
-          <hr />
-          <ul class="subject-card__list">
-            <li>carga horária: 16h</li>
-            <li>Professor: Pessoa da Silva</li>
-            <li>Status <span class="tag tag--success">Opcional</span></li>
-          </ul>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-        </div>
+      
       </div>
     </section>
+    
+    <dialog id="edit-disciplina-modal" class="modal">
+        <div class="modal__container">
+  <form id="edit-disciplina-form">
+    <h3>Editar Disciplina</h3>
+    <label for="edit-nome">Nome:</label>
+    <input type="text" id="edit-nome" name="nome">
+    
+    <label for="edit-cargaHoraria">Carga Horária:</label>
+    <input type="text" id="edit-cargaHoraria" name="cargaHoraria">
+
+    <label for="edit-professor">Professor:</label>
+    <input type="text" id="edit-professor" name="professor">
+
+    <label for="edit-status">Status:</label>
+    <select id="edit-status" name="status">
+      <option value="Obrigatória">Obrigatória</option>
+      <option value="Opcional">Opcional</option>
+    </select>
+
+    <label for="edit-observacoes">Observações:</label>
+    <textarea id="edit-observacoes" name="observacoes"></textarea>
+
+    <button type
+="submit">Salvar Alterações</button>
+<button type="button" onclick="closeEditModal()">Cancelar</button>
+
+  </form>
+  </div>
+</dialog>
   </main>
   <footer class="footer">
-    <span>Lorem, ipsum dolor sit tenetur voluptatem quod!</span>
+    <span>WN PUBLICIDADE!</span>
   </footer>
-  <script src="./javaScript/scripts.js?v=0.12"></script>
+  <script src="./javaScript/scripts.js?v=0.29"></script>
 </body>
 
 </html>

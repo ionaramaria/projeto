@@ -80,6 +80,22 @@ const deleteStudentTable = (id) => {
   });
 };
 
+const deleteStudentTable2 = (id) => {
+  fetch(`${baseUrl}/disciplinas/delete.php?id=${id}`, {
+    method: "DELETE",
+  })
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Erro na requisição');  
+      }
+    window.location.reload();
+  })
+  .catch((error) => {
+    alert("Ocorreu um erro. Tente mais tarde.");
+    console.error(error);
+  });
+};
+
 // Passo 9: Abrir o modal de edição e carregar os dados do aluno
 const editdStudentModal = (id) => {
   fetch(`${baseUrl}/alunos/index.php?id=${id}`)
@@ -141,3 +157,133 @@ const loadStudentTable2 = () => {
 };
 
 loadStudentTable();
+
+
+
+
+fetch('db.json')
+    .then(response => response.json())
+    .then(data => {
+        const disciplinas = data.disciplinas;
+        const subjectList = document.querySelector('.subject-list');
+        disciplinas.forEach(disciplina => {
+            subjectList.innerHTML += `
+                <div class="subject-card">
+                    <h3 class="subject-card__title">${disciplina.nome}</h3>
+                    <hr />
+                    <ul class="subject-card__list">
+                        <li>carga horária: ${disciplina.cargaHoraria}</li>
+                        <li>Professor: ${disciplina.professor}</li>
+                        <li>Status <span class="tag tag--${disciplina.status === 'Obrigatória' ? 'danger' : 'success'}">${disciplina.status}</span></li>
+                    </ul>
+                    <p>${disciplina.observacos}</p>
+                  <button class="edit-button" onclick="editDisciplina(${disciplina.id})">Editar</button>
+                    <button class="delete-button" data-id="${disciplina.id}"  onclick="deleteStudentTable2(${disciplina.id})">Apagar</button>
+                </div>
+            `;
+        });
+    });
+
+function deleteDisciplina(id) {
+  if (!confirm("Tem certeza que deseja apagar esta disciplina?")) {
+    return;
+  }
+
+  fetch(`${baseUrl}/disciplinas/delete.php?id=${id}`, {
+    method: 'DELETE',
+  })
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Erro na requisição');
+    }
+    alert("Disciplina apagada com sucesso!");
+    window.location.reload();
+  })
+  .catch(error => {
+    alert("Ocorreu um erro. Tente mais tarde.");
+    console.error(error);
+  });
+}
+function openEditModal(disciplina) {
+    
+  document.querySelector("#edit-nome").value = disciplina.nome;
+  document.querySelector("#edit-cargaHoraria").value = disciplina.cargaHoraria;
+  document.querySelector("#edit-professor").value = disciplina.professor;
+  document.querySelector("#edit-status").value = disciplina.status;
+  document.querySelector("#edit-observacoes").value = disciplina.observacos;
+
+ 
+  
+   const modal = document.querySelector("#edit-disciplina-modal");
+  modal.setAttribute('data-id', disciplina.id); 
+  modal.showModal();
+}
+
+function closeEditModal() {
+  const modal = document.querySelector("#edit-disciplina-modal");
+  modal.close();
+}
+
+function editDisciplina(id) {
+  fetch(`${baseUrl}/disciplinas/index.php?id=${id}`)
+    .then(resp => resp.json())
+    .then(disciplina => {
+      openEditModal(disciplina);
+    })
+    .catch(error => {
+      alert("Ocorreu um erro ao carregar a disciplina. Tente mais tarde.");
+      console.error(error);
+    });
+}
+function saveDisciplinaData(id) {
+  const formElement = document.querySelector("#editDisciplinaForm");
+  formElement.addEventListener("submit", function(event) {
+    event.preventDefault();
+    const formData = new FormData(this);
+    fetch(`${baseUrl}/disciplinas/update.php?id=${id}`, {
+      method: 'PUT',
+      body: formData,
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Erro na requisição');
+      }
+      alert("Disciplina atualizada com sucesso!");
+      window.location.reload();
+    })
+    .catch(error => {
+      alert("Ocorreu um erro ao salvar a disciplina. Tente mais tarde.");
+      console.error(error);
+    });
+  });
+}
+
+document.querySelector("#edit-disciplina-form").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  const modal = document.querySelector("#edit-disciplina-modal");
+  const id = modal.getAttribute('data-id'); 
+
+
+  const formData = new FormData(this);
+  const queryString = new URLSearchParams(formData).toString();
+
+  fetch(`${baseUrl}/disciplinas/update.php?id=${id}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded'
+    },
+    body: queryString,
+  })
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Erro na requisição');
+    }
+    alert("Disciplina atualizada com sucesso!");
+    modal.close();
+  })
+  .catch(error => {
+    alert("Ocorreu um erro ao salvar a disciplina. Tente mais tarde.");
+    console.error(error);
+  });
+});
