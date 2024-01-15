@@ -84,10 +84,44 @@
           </form>
         </div>
       </dialog>
+      
+      <dialog class="modal" id="disciplina-modal">
+        <div class="modal__container">
+          <header class="modal__header">
+            <h3 id="disciplina-modal-title">Nova Disciplina</h3>
+          </header>
+          <form id="disciplina-form" class="modal__form">
+            <fieldset>
+              <label for="nome">Nome</label>
+              <input type="text" placeholder="Nome da Displina..." name="nome" id="nome">
+              <label>Carga Horaria</label>
+              <input type="text" placeholder="Carga Horaria" id="cargahoraria" name="cargahoraria">
+               <label>Professor</label>
+              <input type="text" placeholder="Carga Horaria" id="professor" name="professor">
+              <label>Status</label>
+              <select name="status" id="status">
+                <option value="">selecione</option>
+                <option value="Obrigatória">Obrigatória</option>
+                <option value="Opcional">Opcional</option>
+              </select>
+             
+              <label>Observações</label>
+                <input type="text" placeholder="Observações" id="obersavacoes" name="obersavacoes">
+            </fieldset>
+            <div class="modal__form-buttons">
+              <button class="button button--danger" type="reset" onclick="closeDisciplinaModal()">
+                Cancelar
+              </button>
+              <button class="button button--success" type="submit" id="save-disciplina">Criar</button>
+            </div>
+          </form>
+        </div>
+      </dialog>
     </section>
     <section class="section-wrapper">
       <header class="section-header">
         <h1 class="section-header__title">Disciplina</h1>
+        <button class="button button--success" onclick="createDisciplina()">Nova Disciplina</button>
       </header>
       <div class="subject-list">
       
@@ -96,8 +130,10 @@
     
     <dialog id="edit-disciplina-modal" class="modal">
         <div class="modal__container">
-  <form id="edit-disciplina-form">
-    <h3>Editar Disciplina</h3>
+  <form id="edit-disciplina-form" class="modal__form">
+  <header class="modal__header">
+            <h3 id="student-modal-title">Editar Disciplina</h3>
+          </header>
     <label for="edit-nome">Nome:</label>
     <input type="text" id="edit-nome" name="nome">
     
@@ -115,10 +151,11 @@
 
     <label for="edit-observacoes">Observações:</label>
     <textarea id="edit-observacoes" name="observacoes"></textarea>
-
+<div>
     <button type
-="submit">Salvar Alterações</button>
-<button type="button" onclick="closeEditModal()">Cancelar</button>
+="submit" class="button button--success">Salvar Alterações</button>
+<button  type="button" onclick="closeEditModal()" class="button button--danger">Cancelar</button>
+</div>
 
   </form>
   </div>
@@ -127,7 +164,7 @@
   <footer class="footer">
     <span>WN PUBLICIDADE!</span>
   </footer>
-  <script src="./javaScript/scripts.js?v=0.29"></script>
+  <script src="./javaScript/scripts.js?v=0.43"></script>
 </body>
 
 </html>

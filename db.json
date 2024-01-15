@@ -49,6 +49,14 @@
             "professor": "Mait\u00ea Analu Carolina Arag\u00e3o",
             "status": "Opcional",
             "observacos": "Lorem ipsum dolor sit adipisicing elit."
+        },
+        {
+            "nome": "PHP AVAN\u00c7ADO",
+            "cargaHoraria": "56H",
+            "professor": "Rodrigo Fujioca",
+            "status": "Opcional",
+            "observacos": "Teste",
+            "id": 5
         }
     ]
 }
